@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorCGI</item>
         <item name="colorPrimaryDark">@color/colorCGIDark</item>
-        <item name="colorCGIAccent">@color/colorCGIAccent</item>
+        <item name="colorAccent">@color/colorCGIAccent</item>
     </style>
 
 </resources>
