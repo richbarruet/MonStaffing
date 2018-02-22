@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mon Staffing</string>
+    <string name="mot_cl">Mot Clé</string>
+    <string name="rentrez_un_mot_cl">Rentrez un mot clé</string>
+    <string name="ville">Ville</string>
+    <string name="hint_choix_ville">Cliquez pour choisir une ville</string>
 </resources>
