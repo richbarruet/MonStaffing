@@ -5,6 +5,7 @@
     <string name="ville">Ville</string>
     <string name="hint_choix_ville">Cliquez pour choisir une ville</string>
     <string name="activity_title_ApplyOfferActivity">Apply to an offer</string>
+    <string name="activity_title_filtre">Filtre</string>
     <string name="apply">Apply</string>
     <string name="client">Client</string>
     <string name="poste">Poste</string>
