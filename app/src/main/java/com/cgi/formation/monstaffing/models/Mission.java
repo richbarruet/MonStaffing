@@ -2,6 +2,7 @@ package com.cgi.formation.monstaffing.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by elkaissounia on 22/02/2018.
@@ -19,7 +20,7 @@ public class Mission implements Serializable{
     private String poste;
 
     //Attribut competences
-    private String competences;
+    private List<String> competences;
 
     //Attribut Lieu
     private Lieu lieu;
@@ -31,7 +32,18 @@ public class Mission implements Serializable{
     private Date dateDeMission;
 
     //Attribut Contact
-    private Contact contact;
+    private List<Contact> contacts;
+
+    public Mission(int id,Vertical vertical,String poste,List<String> competences,String descriptif,Lieu lieu,Date dateDeMission,List<Contact> contacts){
+        setId(id);
+        setVertical(vertical);
+        setPoste(poste);
+        setCompetences(competences);
+        setDescriptif(descriptif);
+        setDateDeMission(dateDeMission);
+        setLieu(lieu);
+        setContacts(contacts);
+    }
 
 
     public int getId() {
@@ -58,11 +70,11 @@ public class Mission implements Serializable{
         this.poste = poste;
     }
 
-    public String getCompetences() {
+    public List<String> getCompetences() {
         return competences;
     }
 
-    public void setCompetences(String competences) {
+    public void setCompetences(List<String> competences) {
         this.competences = competences;
     }
 
@@ -82,12 +94,12 @@ public class Mission implements Serializable{
         this.dateDeMission = dateDeMission;
     }
 
-    public Contact getContact() {
-        return contact;
+    public List<Contact> getContacts() {
+        return contacts;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     public Lieu getLieu() {
