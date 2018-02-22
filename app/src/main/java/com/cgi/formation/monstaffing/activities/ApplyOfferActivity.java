@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.cgi.formation.monstaffing.R;
 
-public class ApplyOffer extends AppCompatActivity {
+public class ApplyOfferActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
