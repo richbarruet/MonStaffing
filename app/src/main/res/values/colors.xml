@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorCGI">#CC0033</color>
+    <color name="colorCGIDark">#93000e</color>
+    <color name="colorCGILight">#ff505c</color>
+    <color name="colorCGIAccent">#4f9cc6</color>
 </resources>
