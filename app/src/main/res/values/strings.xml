@@ -7,7 +7,7 @@
     <string name="activity_title_ApplyOfferActivity">Postuler à une offre</string>
     <string name="apply">Postuler</string>
     <string name="activity_title_filtre">Filtre</string>
-    <string name="client">Client</string>
+    <string name="vertical">Vertical</string>
     <string name="poste">Poste</string>
     <string name="competences">Compétences</string>
     <string name="descriptif">Descriptif</string>
