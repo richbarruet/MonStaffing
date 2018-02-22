@@ -30,6 +30,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         listesCompte.add("Java");
         ArrayList<Contact> listesContacts = new ArrayList<Contact>();
         listesContacts.add(new Contact(1,"Ali","Kaiss"));
+        listesContacts.add(new Contact(2,"Allan","Sirdey"));
         missionsList.add(new Mission(1,Mission.Vertical.ADEME,"Poste1",listesCompte,"Descriptif",Mission.Lieu.Angers,new Date(),listesContacts));
         missionsList.add(new Mission(2,Mission.Vertical.ADEME,"Poste1",listesCompte,"Descriptif",Mission.Lieu.Angers,new Date(),listesContacts));
         missionsList.add(new Mission(3,Mission.Vertical.ADEME,"Poste1",listesCompte,"Descriptif",Mission.Lieu.Angers,new Date(),listesContacts));

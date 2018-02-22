@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cgi.formation.monstaffing.activities.ApplyOfferActivity;
+import com.cgi.formation.monstaffing.activities.DisplayActivity;
 import com.cgi.formation.monstaffing.activities.FiltreActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_filtre:
                 Intent intent1 = new Intent(this, FiltreActivity.class);
                 startActivity(intent1);
+                break;
+
+            case R.id.button_listMission:
+                Intent intent2 = new Intent(this, DisplayActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
