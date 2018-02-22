@@ -37,18 +37,23 @@
         android:text="@string/ville"/>
 
 
-
-
-
-    <EditText
+    <Spinner
         android:id="@+id/villeChoisie"
+        android:spinnerMode="dialog"
+        android:prompt="@string/hint_choix_ville"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_choix_ville"
         android:gravity="center_horizontal"
+        android:hint="@string/hint_choix_ville"
         android:layout_gravity="center"
-        android:layout_weight="20"
-        android:inputType="textPersonName"/>
+        android:layout_weight="20" />
+
+    <Button
+        android:id="@+id/boutonValidation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/boutonValidation"
+        android:layout_weight="5"/>
 
 </LinearLayout>
 

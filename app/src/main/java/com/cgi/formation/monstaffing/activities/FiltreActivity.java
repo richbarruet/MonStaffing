@@ -1,29 +1,29 @@
 package com.cgi.formation.monstaffing.activities;
 
-import android.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.models.Mission;
 
 public class FiltreActivity extends AppCompatActivity {
 
-    private EditText motCleRentre;
-    private EditText villeChoisie;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtre);
 
-        motCleRentre = (EditText) findViewById(R.id.motCleUser);
-        villeChoisie = (EditText) findViewById(R.id.villeChoisie);
+        EditText motCleRentre = findViewById(R.id.motCleUser);
+        Spinner villeChoisie = findViewById(R.id.villeChoisie);
 
-        AlertDialog.Builder menuVille = new AlertDialog.Builder(this);
-        menuVille.setTitle("Choisissez la ville");
+        villeChoisie.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Mission.Lieu.values()));
+
 
 
     }
+
+
 }
