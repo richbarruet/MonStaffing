@@ -12,7 +12,7 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_weight="10"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:text="@string/mot_cl"/>
 
     <EditText
@@ -22,7 +22,6 @@
         android:gravity="center_horizontal"
         android:layout_gravity="center"
         android:hint="@string/rentrez_un_mot_cl"
-        android:layout_weight="20"
         android:inputType="textPersonName"/>
 
 
@@ -33,7 +32,7 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_weight="10"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:text="@string/ville"/>
 
 
@@ -46,7 +45,7 @@
         android:gravity="center_horizontal"
         android:hint="@string/hint_choix_ville"
         android:layout_gravity="center"
-        android:layout_weight="20" />
+        android:layout_weight="5"/>
 
     <Button
         android:id="@+id/boutonValidation"
