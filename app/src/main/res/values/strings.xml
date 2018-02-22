@@ -4,9 +4,9 @@
     <string name="rentrez_un_mot_cl">Rentrez un mot clé</string>
     <string name="ville">Ville</string>
     <string name="hint_choix_ville">Cliquez pour choisir une ville</string>
-    <string name="activity_title_ApplyOfferActivity">Apply to an offer</string>
+    <string name="activity_title_ApplyOfferActivity">Postuler à une offre</string>
+    <string name="apply">Postuler</string>
     <string name="activity_title_filtre">Filtre</string>
-    <string name="apply">Apply</string>
     <string name="client">Client</string>
     <string name="poste">Poste</string>
     <string name="competences">Compétences</string>
@@ -15,5 +15,6 @@
     <string name="date_debut_de_mission">Date début de mission</string>
     <string name="contact">Contact</string>
     <string name="preview_default_value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean placerat mattis elit ut iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus.</string>
+    <string name="message_apply">Ecrire un message pour postuler</string>
     <string name="boutonValidation">Valider</string>
 </resources>

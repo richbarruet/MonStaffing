@@ -10,7 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/button">
+        android:layout_above="@id/edittext_message">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,15 +26,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/client"
-                    android:textSize="14sp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textview_client"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
 
@@ -46,16 +45,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/poste"
-                    android:textSize="14sp" />
+                    android:text="@string/poste" />
 
                 <TextView
                     android:id="@+id/textview_poste"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
 
@@ -67,16 +64,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/competences"
-                    android:textSize="14sp" />
+                    android:text="@string/competences" />
 
                 <TextView
                     android:id="@+id/textview_competences"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
 
@@ -88,16 +83,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lieu"
-                    android:textSize="14sp" />
+                    android:text="@string/lieu" />
 
                 <TextView
                     android:id="@+id/textview_lieu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
 
@@ -109,16 +102,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/date_debut_de_mission"
-                    android:textSize="14sp" />
+                    android:text="@string/date_debut_de_mission" />
 
                 <TextView
-                    android:id="@+id/textview_date_debut_de_mission"
+                    android:id="@+id/textview_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
 
@@ -130,16 +121,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/contact"
-                    android:textSize="14sp" />
+                    android:text="@string/contact" />
 
                 <TextView
                     android:id="@+id/textview_contact"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
 
@@ -151,20 +140,26 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/descriptif"
-                    android:textSize="14sp" />
+                    android:text="@string/descriptif" />
 
                 <TextView
                     android:id="@+id/textview_descriptif"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/preview_default_value"
-                    android:textSize="14sp" />
+                    android:text="@string/preview_default_value" />
 
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
+
+    <EditText
+        android:id="@+id/edittext_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/message_apply"
+        android:layout_above="@id/button" />
 
     <Button
         android:id="@+id/button"

@@ -18,7 +18,8 @@
         </activity>
         <activity
             android:name=".activities.ApplyOfferActivity"
-            android:label="@string/activity_title_ApplyOfferActivity">
+            android:label="@string/activity_title_ApplyOfferActivity"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity android:name=".activities.FiltreActivity"/>
         <activity android:name=".activities.DisplayActivity"></activity>
