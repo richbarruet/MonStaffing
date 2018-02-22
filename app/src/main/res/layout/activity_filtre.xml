@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cgi.formation.monstaffing.activities.FiltreActivity">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/affichageMotCle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:textSize="30sp"
+        android:text="@string/mot_cl"/>
+
+    <EditText
+        android:id="@+id/motCleUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:hint="@string/rentrez_un_mot_cl"
+        android:layout_weight="20"
+        android:inputType="textPersonName"/>
+
+
+    <TextView
+        android:id="@+id/affichageVille"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:textSize="30sp"
+        android:text="@string/ville"/>
+
+
+
+
+
+    <EditText
+        android:id="@+id/villeChoisie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_choix_ville"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_weight="20"
+        android:inputType="textPersonName"/>
+
+</LinearLayout>
+

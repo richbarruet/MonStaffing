@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Mon Staffing</string>
+    <string name="mot_cl">Mot Clé</string>
+    <string name="rentrez_un_mot_cl">Rentrez un mot clé</string>
+    <string name="ville">Ville</string>
+    <string name="hint_choix_ville">Cliquez pour choisir une ville</string>
+    <string name="activity_title_ApplyOfferActivity">Apply to an offer</string>
+    <string name="apply">Apply</string>
+    <string name="client">Client</string>
+    <string name="poste">Poste</string>
+    <string name="competences">Compétences</string>
+    <string name="descriptif">Descriptif</string>
+    <string name="lieu">Lieu</string>
+    <string name="date_debut_de_mission">Date début de mission</string>
+    <string name="contact">Contact</string>
 </resources>
