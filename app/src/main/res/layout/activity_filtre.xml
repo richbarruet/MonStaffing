@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cgi.formation.monstaffing.activities.FiltreActivity">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:textSize="30dp"
+        android:text="Mot Clé"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:hint="Rentrez un mot clé"
+        android:layout_weight="20"
+        android:inputType="textPersonName"/>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:textSize="30dp"
+        android:text="Ville"/>
+
+
+
+
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cliquez pour choisir une ville"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_weight="20"
+        android:inputType="textPersonName"/>
+
+</LinearLayout>
+
