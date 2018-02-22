@@ -16,6 +16,7 @@ import java.util.Date;
 public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener{
 
     private static final String KEYMISSION = "keyMission";
+    private static final int FILTRE_ACTIVITY= 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +48,22 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         bundle.putSerializable(KEYMISSION,mission);
         applyOfferIntent.putExtras(bundle);
         startActivity(applyOfferIntent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (FILTRE_ACTIVITY == requestCode && RESULT_OK == resultCode) {
+            // Fetch the score from the Intent
+            String ville = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
+            String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
+
+            System.out.println(ville);
+            System.out.println(motclef);
+
+
+
+        }
     }
 }
