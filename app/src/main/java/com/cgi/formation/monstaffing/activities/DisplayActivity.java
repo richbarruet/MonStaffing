@@ -25,6 +25,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private static final String KEYMISSION = "keyMission";
     private static final int FILTRE_ACTIVITY= 1;
     private ListView listView;
+    private WebServiceManager webServiceManagerInstance = WebServiceManager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
             @Override
             protected List<Mission> doInBackground(Object[] objects) {
-                return WebServiceManager.getInstance().getFullMissions();
+                return webServiceManagerInstance.getFullMissions();
             }
 
             @Override

@@ -31,14 +31,14 @@ public class Mission implements Serializable{
     private java.lang.String descriptif;
 
     //Attribut date de mission
-    //@SerializedName("date_debut_mission")
-    private Date dateDeMission;
+    @SerializedName("date_debut_mission")
+    private String dateDeMission;
 
     //Attribut Contact
     @SerializedName("liste_contact")
     private List<Contact> contacts;
 
-    public Mission(int id, String vertical, java.lang.String poste, List<java.lang.String> competences, String descriptif,String lieu, Date dateDeMission, List<Contact> contacts){
+    public Mission(int id, String vertical, java.lang.String poste, List<java.lang.String> competences, String descriptif,String lieu, String dateDeMission, List<Contact> contacts){
         setId(id);
         setVertical(vertical);
         setPoste(poste);
@@ -90,11 +90,11 @@ public class Mission implements Serializable{
         this.descriptif = descriptif;
     }
 
-    public Date getDateDeMission() {
+    public String getDateDeMission() {
         return dateDeMission;
     }
 
-    public void setDateDeMission(Date dateDeMission) {
+    public void setDateDeMission(String dateDeMission) {
         this.dateDeMission = dateDeMission;
     }
 

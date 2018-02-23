@@ -1,18 +1,14 @@
 package com.cgi.formation.monstaffing.views.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.cgi.formation.monstaffing.activities.ApplyOfferActivity;
 import com.cgi.formation.monstaffing.models.Mission;
 import com.cgi.formation.monstaffing.views.MissionView;
 
-import java.net.InterfaceAddress;
 import java.util.List;
 
 /**
