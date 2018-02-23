@@ -2,6 +2,7 @@ package com.cgi.formation.monstaffing.activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,11 +31,29 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private WebServiceManager webServiceManagerInstance = WebServiceManager.getInstance();
     private String city="";
     private String keyWord="";
+    private boolean endOfTheList = false;
+    private SwipeRefreshLayout swipeContainer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.d("PULL_TO_REFRESH", "Pull to refresh");
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
 
         //Récupérer la liste View
         listView = findViewById(R.id.missionListId);
@@ -50,7 +69,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 this.currentScrollState = scrollState;
-                this.isScrollCompleted();
+                this.loadMoreData();
             }
 
             @Override
@@ -60,23 +79,27 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
                 this.totalItem = totalItemCount;
             }
 
-            private void isScrollCompleted() {
+            private void loadMoreData() {
                 if (totalItem - currentFirstVisibleItem == currentVisibleItemCount && this.currentScrollState == SCROLL_STATE_IDLE) {
-                    AsyncTask asyncTask = new AsyncTask<Object, Void, List<Mission>>() {
+                    if(!endOfTheList){
+                        AsyncTask asyncTask = new AsyncTask<Object, Void, List<Mission>>() {
 
-                        @Override
-                        protected List<Mission> doInBackground(Object[] objects) {
-                            return webServiceManagerInstance.getMissionsFlitred(city,keyWord,pagination);
-                        }
+                            @Override
+                            protected List<Mission> doInBackground(Object[] objects) {
+                                return webServiceManagerInstance.getMissionsFlitred(city,keyWord,pagination);
+                            }
 
-                        @Override
-                        protected void onPostExecute(List<Mission> result) {
-                            pagination++;
-                            MissionAdapter adapter = (MissionAdapter) listView.getAdapter();
-                            adapter.putMissions(result);
-                        }
-                    };
-                    asyncTask.execute();
+                            @Override
+                            protected void onPostExecute(List<Mission> result) {
+                                if(result.size() < 5)
+                                    endOfTheList = true;
+                                pagination++;
+                                MissionAdapter adapter = (MissionAdapter) listView.getAdapter();
+                                adapter.putMissions(result);
+                            }
+                        };
+                        asyncTask.execute();
+                    }
                 }
             }
         });
@@ -136,10 +159,8 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             String villeFilter = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
             String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
             AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
-                ProgressDialog progress;
                 @Override
                 protected void onPreExecute(){
-                    showProgress(progress);
                 }
 
                 @Override
@@ -149,7 +170,6 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
                 @Override
                 protected void onPostExecute(List<Mission> result){
-                    progress.dismiss();
                     initDisplay(result);
                 }
             };
@@ -163,19 +183,6 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private void initDisplay(List<Mission> missions) {
         MissionAdapter adapter = new MissionAdapter(this, missions, this);
         listView.setAdapter(adapter);
-    }
-
-    /**
-     * Montrer
-     * @param progress
-     */
-    private void showProgress(ProgressDialog progress){
-        progress = new ProgressDialog(this);
-        progress.setTitle("Loading");
-        progress.setMessage("Wait while loading...");
-        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
-        progress.show();
-        progress.dismiss();
     }
 
 }
