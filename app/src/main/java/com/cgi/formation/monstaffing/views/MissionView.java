@@ -30,6 +30,9 @@ public class MissionView extends LinearLayout {
     }
 
     public void initMissionItemView(){
+        //
+        String verticalList = Mission.Vertical.values().toString();
+        String lieuList = Mission.Lieu.values().toString();
         //Récupération des textsViews
         TextView clientView  =  (TextView)rootLinearLayout.findViewById(R.id.client);
         TextView postView  =  (TextView)rootLinearLayout.findViewById(R.id.poste);
@@ -38,7 +41,8 @@ public class MissionView extends LinearLayout {
 
         //Initialisation
         if(clientView != null){
-            clientView.setText(mission.getVertical().getValue());
+            String vertical = mission.getVertical();
+            clientView.setText(vertical);
         }
         if(postView != null){
             postView.setText(mission.getPoste());
@@ -54,7 +58,8 @@ public class MissionView extends LinearLayout {
             }
         }
         if(villeView != null){
-            villeView.setText(mission.getLieu().getValue());
+            String lieu = mission.getLieu();
+            villeView.setText(lieu);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.cgi.formation.monstaffing.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -14,27 +16,29 @@ public class Mission implements Serializable{
     private int id;
 
     //Attribut vertical
-    private Vertical vertical;
+    private String vertical;
 
     //Attribut poste
-    private String poste;
+    private java.lang.String poste;
 
     //Attribut competences
-    private List<String> competences;
+    private List<java.lang.String> competences;
 
-    //Attribut Lieu
-    private Lieu lieu;
+    //Attribut String
+    private String lieu;
 
     //Attribut descriptif
-    private String descriptif;
+    private java.lang.String descriptif;
 
     //Attribut date de mission
+    //@SerializedName("date_debut_mission")
     private Date dateDeMission;
 
     //Attribut Contact
+    @SerializedName("liste_contact")
     private List<Contact> contacts;
 
-    public Mission(int id,Vertical vertical,String poste,List<String> competences,String descriptif,Lieu lieu,Date dateDeMission,List<Contact> contacts){
+    public Mission(int id, String vertical, java.lang.String poste, List<java.lang.String> competences, String descriptif,String lieu, Date dateDeMission, List<Contact> contacts){
         setId(id);
         setVertical(vertical);
         setPoste(poste);
@@ -54,35 +58,35 @@ public class Mission implements Serializable{
         this.id = id;
     }
 
-    public Vertical getVertical() {
+    public String getVertical() {
         return vertical;
     }
 
-    public void setVertical(Vertical vertical) {
-        this.vertical = vertical;
+    public void setVertical(String string) {
+        this.vertical = string;
     }
 
-    public String getPoste() {
+    public java.lang.String getPoste() {
         return poste;
     }
 
-    public void setPoste(String poste) {
+    public void setPoste(java.lang.String poste) {
         this.poste = poste;
     }
 
-    public List<String> getCompetences() {
+    public List<java.lang.String> getCompetences() {
         return competences;
     }
 
-    public void setCompetences(List<String> competences) {
+    public void setCompetences(List<java.lang.String> competences) {
         this.competences = competences;
     }
 
-    public String getDescriptif() {
+    public java.lang.String getDescriptif() {
         return descriptif;
     }
 
-    public void setDescriptif(String descriptif) {
+    public void setDescriptif(java.lang.String descriptif) {
         this.descriptif = descriptif;
     }
 
@@ -102,18 +106,18 @@ public class Mission implements Serializable{
         this.contacts = contacts;
     }
 
-    public Lieu getLieu() {
+    public String getLieu() {
         return lieu;
     }
 
-    public void setLieu(Lieu lieu) {
-        this.lieu = lieu;
+    public void setLieu(String string) {
+        this.lieu = string;
     }
 
     //Enums
 
-    //Enum Lieu
-    public static enum Lieu  {
+    //Enum String
+    public static enum Lieu {
         Angers("Angers"),
         AngersPossible3jParsemaineANantes("Angers (possible 3j/semaine à Nantes)"),
         Brest("Brest"),
@@ -141,7 +145,7 @@ public class Mission implements Serializable{
             return value;
         }
 
-        public void setValue(String value) {
+        public void setValue(java.lang.String value) {
             this.value = value;
         }
 
@@ -149,7 +153,8 @@ public class Mission implements Serializable{
         public String toString(){
             return this.getValue();
         }
-    }
+
+        }
 
     //Enum Vertical
     public static enum Vertical {

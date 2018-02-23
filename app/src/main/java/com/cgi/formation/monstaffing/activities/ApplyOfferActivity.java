@@ -70,10 +70,10 @@ public class ApplyOfferActivity extends AppCompatActivity {
             String date = simpleDate.format(mission.getDateDeMission());
 
             // Affecter les valeurs de l'objet mission au textview
-            textViewVertical.setText(mission.getVertical().getValue());
+            textViewVertical.setText(mission.getVertical());
             textViewPoste.setText(mission.getPoste());
             textViewCompetences.setText(listCompetence);
-            textViewLieu.setText(mission.getLieu().getValue());
+            textViewLieu.setText(mission.getLieu());
             textViewDate.setText(date);
             textViewContact.setText(listContact);
             textViewDescriptif.setText(mission.getDescriptif());
