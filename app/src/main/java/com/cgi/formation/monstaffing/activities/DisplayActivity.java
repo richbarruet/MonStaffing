@@ -25,6 +25,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private static final String KEYMISSION = "keyMission";
     private static final int FILTRE_ACTIVITY= 1;
     private ListView listView;
+    private Button buttonFiltre;
     private WebServiceManager webServiceManagerInstance = WebServiceManager.getInstance();
 
     @Override
@@ -47,10 +48,23 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             }
         };
         asyncTask.execute();
+
+        buttonFiltre =(Button) findViewById(R.id.buttonFiltre);
+
+        buttonFiltre.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View view){
+                Intent intentF = new Intent(view.getContext(), FiltreActivity.class);
+                startActivityForResult(intentF, FILTRE_ACTIVITY);
+            }
+        });
     }
 
     /**
      * TO DO
+     *
      * @param mission
      */
     @Override
@@ -61,6 +75,8 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         applyOfferIntent.putExtras(bundle);
         startActivity(applyOfferIntent);
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

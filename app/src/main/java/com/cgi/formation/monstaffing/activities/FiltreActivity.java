@@ -1,13 +1,16 @@
 package com.cgi.formation.monstaffing.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.models.Mission;
@@ -26,7 +29,7 @@ public class FiltreActivity extends AppCompatActivity {
         final Spinner villeChoisie = findViewById(R.id.villeChoisie);
         Button boutonValidation = findViewById(R.id.boutonValidation);
 
-        villeChoisie.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Mission.Lieu.values()));
+        villeChoisie.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Mission.Lieu.values()));
 
 
         boutonValidation.setOnClickListener(new View.OnClickListener() {

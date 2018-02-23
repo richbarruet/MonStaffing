@@ -38,7 +38,7 @@
 
     <Spinner
         android:id="@+id/villeChoisie"
-        android:spinnerMode="dropdown"
+        android:spinnerMode="dialog"
         android:prompt="@string/hint_choix_ville"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
