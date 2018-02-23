@@ -24,10 +24,14 @@
         <activity
             android:name=".activities.ApplyOfferActivity"
             android:label="@string/activity_title_applyOfferActivity"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activities.FiltreActivity" />
         <activity android:name=".activities.DisplayActivity" />
-        <activity android:name=".activities.LoginActivity" android:label="@string/activity_title_login"/>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:label="@string/activity_title_login"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

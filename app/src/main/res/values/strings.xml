@@ -21,4 +21,6 @@
     <string name="boutonFiltre">Filtrer</string>
     <string name="activity_title_login">Login</string>
     <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>
