@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.cgi.formation.monstaffing.R;
@@ -59,8 +61,25 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         startActivity(applyOfferIntent);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (FILTRE_ACTIVITY == requestCode && RESULT_OK == resultCode) {
+            // Fetch the score from the Intent
+            String ville = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
+            String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
+
+            System.out.println(ville);
+            System.out.println(motclef);
+
+
+
+        }
+    }
     private void initDisplay(List<Mission> missions ){
         MissionAdapter adapter = new MissionAdapter(this,missions,this);
         listView.setAdapter(adapter);
     }
+
 }
