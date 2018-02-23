@@ -65,9 +65,13 @@ public class MissionAdapter extends BaseAdapter {
         return view;
     }
 
+    public void putMissions(List<Mission> missions){
+        data.addAll(missions);
+        notifyDataSetChanged();
+    }
+
 
     public interface MissionListener {
         public void onClickMissionItem(Mission mission);
-
     }
 }

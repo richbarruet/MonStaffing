@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.cgi.formation.monstaffing.R;
@@ -21,11 +24,11 @@ import java.util.List;
 public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener {
 
 
-
     private static final String KEYMISSION = "keyMission";
     private static final int FILTRE_ACTIVITY= 1;
     private ListView listView;
     private Button buttonFiltre;
+    private int pagination = 0;
     private WebServiceManager webServiceManagerInstance = WebServiceManager.getInstance();
     private String city="";
     private String keyWord="";
@@ -38,17 +41,60 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         //Récupérer la liste View
         listView = findViewById(R.id.missionListId);
 
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            private int currentVisibleItemCount;
+            private int currentScrollState;
+            private int currentFirstVisibleItem;
+            private int totalItem;
+            private LinearLayout lBelow;
+
+
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                this.currentScrollState = scrollState;
+                this.isScrollCompleted();
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                this.currentFirstVisibleItem = firstVisibleItem;
+                this.currentVisibleItemCount = visibleItemCount;
+                this.totalItem = totalItemCount;
+            }
+
+            private void isScrollCompleted() {
+                if (totalItem - currentFirstVisibleItem == currentVisibleItemCount && this.currentScrollState == SCROLL_STATE_IDLE) {
+                    AsyncTask asyncTask = new AsyncTask<Object, Void, List<Mission>>() {
+
+                        @Override
+                        protected List<Mission> doInBackground(Object[] objects) {
+                            return webServiceManagerInstance.getMissionsFlitred(city,keyWord,pagination);
+                        }
+
+                        @Override
+                        protected void onPostExecute(List<Mission> result) {
+                            pagination++;
+                            MissionAdapter adapter = (MissionAdapter) listView.getAdapter();
+                            adapter.putMissions(result);
+                        }
+                    };
+                    asyncTask.execute();
+                }
+            }
+        });
+
         //Asynchroune Task pour l'appelle au WS
          AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
 
             @Override
             protected List<Mission> doInBackground(Object[] objects) {
-                return webServiceManagerInstance.getMissionsFlitred(city,keyWord);
+                return webServiceManagerInstance.getMissionsFlitred(city,keyWord,pagination);
             }
 
             @Override
             protected void onPostExecute(List<Mission> result){
                 initDisplay(result);
+                pagination++;
             }
         };
         //Exécution de la tache
@@ -74,9 +120,9 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
      */
     @Override
     public void onClickMissionItem(Mission mission) {
-        Intent applyOfferIntent = new Intent(this,ApplyOfferActivity.class);
+        Intent applyOfferIntent = new Intent(this, ApplyOfferActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(KEYMISSION,mission);
+        bundle.putSerializable(KEYMISSION, mission);
         applyOfferIntent.putExtras(bundle);
         startActivity(applyOfferIntent);
     }
@@ -95,7 +141,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
                 @Override
                 protected List<Mission> doInBackground(Object[] objects) {
-                    return webServiceManagerInstance.getMissionsFlitred((String)objects[0],(String)objects[1]);
+                    return webServiceManagerInstance.getMissionsFlitred((String)objects[0],(String)objects[1], (int)objects[2]);
                 }
 
                 @Override
@@ -105,11 +151,13 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             };
             city = villeFilter;
             keyWord = motclef;
-            asyncTask.execute(city,keyWord);
+            asyncTask.execute(city,keyWord, 0);
+            pagination = 0;
         }
     }
-    private void initDisplay(List<Mission> missions ){
-        MissionAdapter adapter = new MissionAdapter(this,missions,this);
+
+    private void initDisplay(List<Mission> missions) {
+        MissionAdapter adapter = new MissionAdapter(this, missions, this);
         listView.setAdapter(adapter);
     }
 

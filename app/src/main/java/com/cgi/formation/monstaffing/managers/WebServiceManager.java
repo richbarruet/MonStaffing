@@ -67,7 +67,7 @@ public class WebServiceManager {
      * @param keyWord filtrer sur un mot clé
      * @return
      */
-    public List<Mission> getMissionsFlitred(String ville,String keyWord){
+    public List<Mission> getMissionsFlitred(String ville,String keyWord, int pagination){
         //Result
         List<Mission> founderList = new ArrayList<Mission>();
         //Gestion des params
@@ -89,7 +89,7 @@ public class WebServiceManager {
         }
         //La requete
         Request myGetRequest = new Request.Builder()
-                .url(URLWEBSERVICE+"/list"+filterPram)
+                .url(URLWEBSERVICE+"/list" + "/" + pagination + filterPram)
                 .addHeader(TOKEN,token)
                 .build();
 
