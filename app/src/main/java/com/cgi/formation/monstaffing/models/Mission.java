@@ -19,16 +19,16 @@ public class Mission implements Serializable{
     private String vertical;
 
     //Attribut poste
-    private java.lang.String poste;
+    private String poste;
 
     //Attribut competences
-    private List<java.lang.String> competences;
+    private List<String> competences;
 
     //Attribut String
     private String lieu;
 
     //Attribut descriptif
-    private java.lang.String descriptif;
+    private String descriptif;
 
     //Attribut date de mission
     @SerializedName("date_debut_mission")
@@ -38,7 +38,7 @@ public class Mission implements Serializable{
     @SerializedName("liste_contact")
     private List<Contact> contacts;
 
-    public Mission(int id, String vertical, java.lang.String poste, List<java.lang.String> competences, String descriptif,String lieu, String dateDeMission, List<Contact> contacts){
+    public Mission(int id, String vertical, String poste, List<String> competences, String descriptif,String lieu, String dateDeMission, List<Contact> contacts){
         setId(id);
         setVertical(vertical);
         setPoste(poste);

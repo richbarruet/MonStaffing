@@ -1,5 +1,6 @@
 package com.cgi.formation.monstaffing.managers;
 
+import com.cgi.formation.monstaffing.BuildConfig;
 import com.cgi.formation.monstaffing.models.Mission;
 import com.cgi.formation.monstaffing.models.ResponseAuthent;
 import com.google.gson.Gson;
@@ -36,7 +37,7 @@ public class WebServiceManager {
     //Instance
     private static WebServiceManager INSTANCE;
 
-    private static final String URLWEBSERVICE = "http://monstaffing.getsandbox.com/v1";
+    private static final String URLWEBSERVICE = BuildConfig.BASE_URL;
 
     private static OkHttpClient okHttpClient;
 

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.cgi.formation.monstaffing.BuildConfig;
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.models.Contact;
 import com.cgi.formation.monstaffing.models.Mission;
@@ -82,7 +84,7 @@ public class ApplyOfferActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                    emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"allan.sirdey@cgi.com"});
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {BuildConfig.TARGET_MAIL});
                     emailIntent.setType("text/plain");
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email subject");
                     emailIntent.putExtra(Intent.EXTRA_TEXT, mission.getDescriptif() + "\n\n" + editTextMessage.getText().toString());
