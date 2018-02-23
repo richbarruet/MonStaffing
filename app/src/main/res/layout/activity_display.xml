@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cgi.formation.monstaffing.activities.DisplayActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.cgi.formation.monstaffing.activities.DisplayActivity">
 
     <Button
         android:id="@+id/buttonFiltre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/boutonFiltre"/>
+        android:text="@string/boutonFiltre" />
 
-    <ListView
-        android:id="@+id/missionListId"
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
 
+        <ListView
+            android:id="@+id/missionListId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>
