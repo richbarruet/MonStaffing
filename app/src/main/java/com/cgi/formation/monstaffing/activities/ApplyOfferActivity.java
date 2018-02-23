@@ -13,6 +13,7 @@ import com.cgi.formation.monstaffing.BuildConfig;
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.models.Contact;
 import com.cgi.formation.monstaffing.models.Mission;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -50,12 +51,12 @@ public class ApplyOfferActivity extends AppCompatActivity {
         // Recuperer l'objet mission depuis l'intent
         mission = (Mission) getIntent().getSerializableExtra("keyMission");
 
-        if(mission != null){
+        if (mission != null) {
             // Convertir les listes en string
             String listCompetence = TextUtils.join(", ", mission.getCompetences());
             String listContact = "";
             for (Contact ct : mission.getContacts()) {
-                if(!listContact.equals(""))
+                if (!listContact.equals(""))
                     listContact = listContact.concat(", ");
                 listContact = listContact.concat(ct.getPrenom() + " " + ct.getNom());
             }
@@ -63,8 +64,8 @@ public class ApplyOfferActivity extends AppCompatActivity {
             // Format de la date
             //SimpleDateFormat simpleDate =  new SimpleDateFormat(getString(R.string.date_format), Locale.getDefault());
             //String date = simpleDate.format(mission.getDateDeMission());
-            if(mission.getDateDeMission() == null){
-                SimpleDateFormat simpleDate =  new SimpleDateFormat(getString(R.string.date_format), Locale.getDefault());
+            if (mission.getDateDeMission() == null) {
+                SimpleDateFormat simpleDate = new SimpleDateFormat(getString(R.string.date_format), Locale.getDefault());
                 String date = simpleDate.format(new Date());
                 mission.setDateDeMission(date);
             }
@@ -84,9 +85,9 @@ public class ApplyOfferActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                    emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {BuildConfig.TARGET_MAIL});
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"allan.sirdey@cgi.com"});
                     emailIntent.setType("text/plain");
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email subject");
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Postuler offre CGI");
                     emailIntent.putExtra(Intent.EXTRA_TEXT, mission.getDescriptif() + "\n\n" + editTextMessage.getText().toString());
                     startActivity(emailIntent);
                 }
