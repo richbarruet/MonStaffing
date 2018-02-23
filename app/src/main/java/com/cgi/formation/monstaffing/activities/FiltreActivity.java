@@ -29,9 +29,11 @@ public class FiltreActivity extends AppCompatActivity {
         final Spinner villeChoisie = findViewById(R.id.villeChoisie);
         Button boutonValidation = findViewById(R.id.boutonValidation);
 
+        // Permet de récupérer les valeurs de l'enum avec les villes
         villeChoisie.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Mission.Lieu.values()));
 
 
+        // Lors de la validation de la recherche, ferme l'activité en sauvegardant les critères de recherches
         boutonValidation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

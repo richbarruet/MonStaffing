@@ -21,9 +21,8 @@ import java.util.List;
 public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener {
 
 
-
     private static final String KEYMISSION = "keyMission";
-    private static final int FILTRE_ACTIVITY= 1;
+    private static final int FILTRE_ACTIVITY = 1;
     private ListView listView;
     private Button buttonFiltre;
     private WebServiceManager webServiceManagerInstance = WebServiceManager.getInstance();
@@ -35,7 +34,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
         listView = findViewById(R.id.missionListId);
 
-         AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
+        AsyncTask asyncTask = new AsyncTask<Object, Void, List<Mission>>() {
 
             @Override
             protected List<Mission> doInBackground(Object[] objects) {
@@ -43,19 +42,20 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             }
 
             @Override
-            protected void onPostExecute(List<Mission> result){
+            protected void onPostExecute(List<Mission> result) {
                 initDisplay(result);
             }
         };
         asyncTask.execute();
 
-        buttonFiltre =(Button) findViewById(R.id.buttonFiltre);
+        buttonFiltre = (Button) findViewById(R.id.buttonFiltre);
 
         buttonFiltre.setOnClickListener(new View.OnClickListener()
 
+                // Lance l'activité filtre en attente de résultat
         {
             @Override
-            public void onClick (View view){
+            public void onClick(View view) {
                 Intent intentF = new Intent(view.getContext(), FiltreActivity.class);
                 startActivityForResult(intentF, FILTRE_ACTIVITY);
             }
@@ -69,33 +69,28 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
      */
     @Override
     public void onClickMissionItem(Mission mission) {
-        Intent applyOfferIntent = new Intent(this,ApplyOfferActivity.class);
+        Intent applyOfferIntent = new Intent(this, ApplyOfferActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(KEYMISSION,mission);
+        bundle.putSerializable(KEYMISSION, mission);
         applyOfferIntent.putExtras(bundle);
         startActivity(applyOfferIntent);
     }
 
-
-
+    // Récupère les valeurs du filtre
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (FILTRE_ACTIVITY == requestCode && RESULT_OK == resultCode) {
-            // Fetch the score from the Intent
             String ville = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
             String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
-
-            System.out.println(ville);
-            System.out.println(motclef);
-
 
 
         }
     }
-    private void initDisplay(List<Mission> missions ){
-        MissionAdapter adapter = new MissionAdapter(this,missions,this);
+
+    private void initDisplay(List<Mission> missions) {
+        MissionAdapter adapter = new MissionAdapter(this, missions, this);
         listView.setAdapter(adapter);
     }
 
