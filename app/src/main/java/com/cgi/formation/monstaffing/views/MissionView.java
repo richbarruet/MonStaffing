@@ -47,7 +47,7 @@ public class MissionView extends LinearLayout {
         if(postView != null){
             postView.setText(mission.getPoste());
         }
-        if(competencesView == null){
+        if(competencesView != null){
             List<String> listCompetences = mission.getCompetences();
             if(!listCompetences.isEmpty()){
                 if(listCompetences.size() > 1) {

@@ -31,7 +31,7 @@ public class WebServiceManager {
 
     private static final String URLWEBSERVICE = BuildConfig.BASE_URL;
 
-    private static final String TOKEN = "TOKEN";
+    private static final String TOKEN = "token";
 
     private static final String KEYWORD = "keyword";
 
@@ -133,6 +133,8 @@ public class WebServiceManager {
             if(response.isSuccessful()){
                 String responseData = response.body().string();
                 responseAuthent = (ResponseAuthent)gson.fromJson(responseData,ResponseAuthent.class);
+            } else {
+                return null;
             }
         } catch (IOException e) {
             e.printStackTrace();

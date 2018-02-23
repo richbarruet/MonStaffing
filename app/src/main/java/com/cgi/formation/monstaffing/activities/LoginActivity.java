@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.managers.CacheManager;
@@ -59,9 +60,15 @@ public class LoginActivity extends AppCompatActivity {
         asyncTask.execute(editTextLogin.getText().toString(),editTextPassword.getText().toString());
     }
 
+    //Récupération du token d'authent et reidrection selon le code retour
     private void setToken(ResponseAuthent responseAuthent){
         cacheManagerInstance.setResponseAuthent(responseAuthent);
-        Intent intent = new Intent(this,DisplayActivity.class);
-        startActivity(intent);
+        if(responseAuthent != null) {
+            Intent intent = new Intent(this, DisplayActivity.class);
+            startActivity(intent);
+        } else {
+            Toast toast = Toast.makeText(this,R.string.loginFailed,Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }

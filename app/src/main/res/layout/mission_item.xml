@@ -15,21 +15,18 @@
             android:id="@+id/client"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Client"
             android:layout_weight="1"
             />
         <TextView
             android:id="@+id/poste"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Poste"
             android:layout_weight="1"
             />
         <TextView
             android:id="@+id/ville"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="ville"
             android:layout_weight="1"
             />
     </LinearLayout>
@@ -42,7 +39,8 @@
                 android:id="@+id/competences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/competences"
+                android:singleLine="true"
+                android:ellipsize="end"
             />
         >
     </LinearLayout>

@@ -7,15 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.app.ProgressDialog;
 
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.managers.WebServiceManager;
-import com.cgi.formation.monstaffing.models.Contact;
+
 import com.cgi.formation.monstaffing.models.Mission;
 import com.cgi.formation.monstaffing.views.adapters.MissionAdapter;
-
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener {
@@ -92,6 +90,11 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             String villeFilter = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
             String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
             AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
+                ProgressDialog progress;
+                @Override
+                protected void onPreExecute(){
+                    showProgress(progress);
+                }
 
                 @Override
                 protected List<Mission> doInBackground(Object[] objects) {
@@ -100,6 +103,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
                 @Override
                 protected void onPostExecute(List<Mission> result){
+                    progress.dismiss();
                     initDisplay(result);
                 }
             };
@@ -111,6 +115,19 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private void initDisplay(List<Mission> missions ){
         MissionAdapter adapter = new MissionAdapter(this,missions,this);
         listView.setAdapter(adapter);
+    }
+
+    /**
+     * Montrer
+     * @param progress
+     */
+    private void showProgress(ProgressDialog progress){
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Wait while loading...");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.show();
+        progress.dismiss();
     }
 
 }
