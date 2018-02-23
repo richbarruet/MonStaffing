@@ -23,7 +23,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
 
     private static final String KEYMISSION = "keyMission";
-
+    private static final int FILTRE_ACTIVITY= 1;
     private ListView listView;
 
     @Override
