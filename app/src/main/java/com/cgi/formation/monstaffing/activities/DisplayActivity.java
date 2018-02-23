@@ -3,6 +3,8 @@ package com.cgi.formation.monstaffing.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.cgi.formation.monstaffing.R;
@@ -13,10 +15,12 @@ import com.cgi.formation.monstaffing.views.adapters.MissionAdapter;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener{
+public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener {
+
+    private Button buttonFiltre;
 
     private static final String KEYMISSION = "keyMission";
-    private static final int FILTRE_ACTIVITY= 1;
+    private static final int FILTRE_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +33,34 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         listesCompte.add("Android");
         listesCompte.add("Java");
         ArrayList<Contact> listesContacts = new ArrayList<Contact>();
-        listesContacts.add(new Contact(1,"Ali","Kaiss"));
-        listesContacts.add(new Contact(2,"Allan","Sirdey"));
-        missionsList.add(new Mission(1,Mission.Vertical.ADEME,"Poste1",listesCompte,"Descriptif",Mission.Lieu.Angers,new Date(),listesContacts));
-        missionsList.add(new Mission(2,Mission.Vertical.ADEME,"Poste1",listesCompte,"Descriptif",Mission.Lieu.Angers,new Date(),listesContacts));
-        missionsList.add(new Mission(3,Mission.Vertical.ADEME,"Poste1",listesCompte,"Descriptif",Mission.Lieu.Angers,new Date(),listesContacts));
+        listesContacts.add(new Contact(1, "Ali", "Kaiss"));
+        listesContacts.add(new Contact(2, "Allan", "Sirdey"));
+        missionsList.add(new Mission(1, Mission.Vertical.ADEME, "Poste1", listesCompte, "Descriptif", Mission.Lieu.Angers, new Date(), listesContacts));
+        missionsList.add(new Mission(2, Mission.Vertical.ADEME, "Poste1", listesCompte, "Descriptif", Mission.Lieu.Angers, new Date(), listesContacts));
+        missionsList.add(new Mission(3, Mission.Vertical.ADEME, "Poste1", listesCompte, "Descriptif", Mission.Lieu.Angers, new Date(), listesContacts));
 
 
-        MissionAdapter adapter = new MissionAdapter(this,missionsList,this);
+        MissionAdapter adapter = new MissionAdapter(this, missionsList, this);
 
         listView.setAdapter(adapter);
+
+        buttonFiltre = (Button) findViewById(R.id.buttonFiltre);
+
+        buttonFiltre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentF = new Intent(view.getContext(), FiltreActivity.class);
+                startActivityForResult(intentF, FILTRE_ACTIVITY);
+            }
+        });
 
     }
 
     @Override
     public void onClickMissionItem(Mission mission) {
-        Intent applyOfferIntent = new Intent(this,ApplyOfferActivity.class);
+        Intent applyOfferIntent = new Intent(this, ApplyOfferActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(KEYMISSION,mission);
+        bundle.putSerializable(KEYMISSION, mission);
         applyOfferIntent.putExtras(bundle);
         startActivity(applyOfferIntent);
     }
@@ -64,7 +78,8 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             System.out.println(motclef);
 
 
-
         }
     }
+
+
 }
