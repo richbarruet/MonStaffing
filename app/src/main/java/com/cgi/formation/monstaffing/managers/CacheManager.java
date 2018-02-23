@@ -13,6 +13,7 @@ public class CacheManager {
     private  ResponseAuthent responseAuthent;
 
     CacheManager(){
+        responseAuthent = new ResponseAuthent("");
     }
 
     public static CacheManager getInstance(){

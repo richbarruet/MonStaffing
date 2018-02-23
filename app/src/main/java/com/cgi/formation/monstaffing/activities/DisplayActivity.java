@@ -27,19 +27,23 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private ListView listView;
     private Button buttonFiltre;
     private WebServiceManager webServiceManagerInstance = WebServiceManager.getInstance();
+    private String city="";
+    private String keyWord="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        //Récupérer la liste View
         listView = findViewById(R.id.missionListId);
 
+        //Asynchroune Task pour l'appelle au WS
          AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
 
             @Override
             protected List<Mission> doInBackground(Object[] objects) {
-                return webServiceManagerInstance.getFullMissions();
+                return webServiceManagerInstance.getMissionsFlitred(city,keyWord);
             }
 
             @Override
@@ -47,10 +51,11 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
                 initDisplay(result);
             }
         };
+        //Exécution de la tache
         asyncTask.execute();
 
+        //Button pour filtrer
         buttonFiltre =(Button) findViewById(R.id.buttonFiltre);
-
         buttonFiltre.setOnClickListener(new View.OnClickListener()
 
         {
@@ -84,14 +89,23 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
         if (FILTRE_ACTIVITY == requestCode && RESULT_OK == resultCode) {
             // Fetch the score from the Intent
-            String ville = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
+            String villeFilter = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
             String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
+            AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
 
-            System.out.println(ville);
-            System.out.println(motclef);
+                @Override
+                protected List<Mission> doInBackground(Object[] objects) {
+                    return webServiceManagerInstance.getMissionsFlitred((String)objects[0],(String)objects[1]);
+                }
 
-
-
+                @Override
+                protected void onPostExecute(List<Mission> result){
+                    initDisplay(result);
+                }
+            };
+            city = villeFilter;
+            keyWord = motclef;
+            asyncTask.execute(city,keyWord);
         }
     }
     private void initDisplay(List<Mission> missions ){
