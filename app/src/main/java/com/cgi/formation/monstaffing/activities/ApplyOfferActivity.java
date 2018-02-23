@@ -12,6 +12,7 @@ import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.models.Contact;
 import com.cgi.formation.monstaffing.models.Mission;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class ApplyOfferActivity extends AppCompatActivity {
@@ -59,7 +60,12 @@ public class ApplyOfferActivity extends AppCompatActivity {
 
             // Format de la date
             SimpleDateFormat simpleDate =  new SimpleDateFormat(getString(R.string.date_format), Locale.getDefault());
-            String date = simpleDate.format(mission.getDateDeMission());
+            String date = "";
+            if(mission.getDateDeMission() != null) {
+                date = simpleDate.format(mission.getDateDeMission());
+            }else {
+                date = simpleDate.format(new Date());
+            }
 
             // Affecter les valeurs de l'objet mission au textview
             textViewVertical.setText(mission.getVertical());

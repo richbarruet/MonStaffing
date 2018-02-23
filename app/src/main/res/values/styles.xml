@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorCGIAccent</item>
     </style>
 
+    <style name="BackgroundButton">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@color/colorCGIAccent</item>
+    </style>
+
 </resources>

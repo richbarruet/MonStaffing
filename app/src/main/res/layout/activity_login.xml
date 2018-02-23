@@ -4,29 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cgi.formation.monstaffing.activities.LoginActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.cgi.formation.monstaffing.activities.LoginActivity">
 
-    <EditText
-        android:id="@+id/edittext_login"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:layout_margin="10dp"/>
+        android:layout_height="200dp"
+        android:background="@color/colorCGI"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edittext_password"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/password"
-        android:layout_margin="10dp"/>
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/Base.TextAppearance.AppCompat.Display1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="60dp"
+            android:text="Offres de missions"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/button_login"
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/Base.TextAppearance.AppCompat.Headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="CGI"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/login"
-        android:layout_margin="10dp"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edittext_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10dp"
+                android:hint="@string/email" />
+
+            <EditText
+                android:id="@+id/edittext_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10dp"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/button_login"
+                style="@style/BackgroundButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10dp"
+                android:text="@string/login" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop_30dp"
+                android:text="@string/cgi"
+                android:textAlignment="center"
+                android:textColor="@color/colorCGI"
+                android:textSize="@dimen/textSize_big"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
