@@ -8,6 +8,7 @@ import android.view.View;
 import com.cgi.formation.monstaffing.activities.ApplyOfferActivity;
 import com.cgi.formation.monstaffing.activities.DisplayActivity;
 import com.cgi.formation.monstaffing.activities.FiltreActivity;
+import com.cgi.formation.monstaffing.activities.LoginActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
