@@ -4,7 +4,7 @@
     <string name="rentrez_un_mot_cl">Rentrez un mot clé</string>
     <string name="ville">Ville</string>
     <string name="hint_choix_ville">Cliquez pour choisir une ville</string>
-    <string name="activity_title_ApplyOfferActivity">Postuler à une offre</string>
+    <string name="activity_title_applyOfferActivity">Postuler à une offre</string>
     <string name="apply">Postuler</string>
     <string name="activity_title_filtre">Filtre</string>
     <string name="vertical">Vertical</string>
@@ -19,4 +19,6 @@
     <string name="boutonValidation">Valider</string>
     <string name="date_format">dd/MM/yyyy</string>
     <string name="boutonFiltre">Filtrer</string>
+    <string name="activity_title_login">Login</string>
+    <string name="login">Login</string>
 </resources>
