@@ -21,10 +21,10 @@ import java.util.List;
 public class DisplayActivity extends AppCompatActivity implements MissionAdapter.MissionListener {
 
 
-
     private static final String KEYMISSION = "keyMission";
-    private static final int FILTRE_ACTIVITY= 1;
+    private static final int FILTRE_ACTIVITY = 1;
     private ListView listView;
+    private Button buttonFiltre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
         listView = findViewById(R.id.missionListId);
 
-         AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
+        AsyncTask asyncTask = new AsyncTask<Object, Void, List<Mission>>() {
 
             @Override
             protected List<Mission> doInBackground(Object[] objects) {
@@ -41,25 +41,40 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             }
 
             @Override
-            protected void onPostExecute(List<Mission> result){
+            protected void onPostExecute(List<Mission> result) {
                 initDisplay(result);
             }
         };
         asyncTask.execute();
+
+        buttonFiltre =(Button) findViewById(R.id.buttonFiltre);
+
+        buttonFiltre.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View view){
+                Intent intentF = new Intent(view.getContext(), FiltreActivity.class);
+                startActivityForResult(intentF, FILTRE_ACTIVITY);
+            }
+        });
     }
 
     /**
      * TO DO
+     *
      * @param mission
      */
     @Override
     public void onClickMissionItem(Mission mission) {
-        Intent applyOfferIntent = new Intent(this,ApplyOfferActivity.class);
+        Intent applyOfferIntent = new Intent(this, ApplyOfferActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(KEYMISSION,mission);
+        bundle.putSerializable(KEYMISSION, mission);
         applyOfferIntent.putExtras(bundle);
         startActivity(applyOfferIntent);
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -74,11 +89,11 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             System.out.println(motclef);
 
 
-
         }
     }
-    private void initDisplay(List<Mission> missions ){
-        MissionAdapter adapter = new MissionAdapter(this,missions,this);
+
+    private void initDisplay(List<Mission> missions) {
+        MissionAdapter adapter = new MissionAdapter(this, missions, this);
         listView.setAdapter(adapter);
     }
 
