@@ -35,5 +35,8 @@
             android:label="@string/activity_title_login"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".services.HockeyActivity" />
+
+        <meta-data android:name="net.hockeyapp.android.appIdentifier" android:value="${HOCKEYAPP_APP_ID}" />
     </application>
 </manifest>

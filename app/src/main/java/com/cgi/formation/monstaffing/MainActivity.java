@@ -1,8 +1,6 @@
 package com.cgi.formation.monstaffing;
 
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -10,10 +8,10 @@ import com.cgi.formation.monstaffing.activities.ApplyOfferActivity;
 import com.cgi.formation.monstaffing.activities.DisplayActivity;
 import com.cgi.formation.monstaffing.activities.FiltreActivity;
 import com.cgi.formation.monstaffing.activities.LoginActivity;
-import com.cgi.formation.monstaffing.managers.WebServiceManager;
+import com.cgi.formation.monstaffing.services.HockeyActivity;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends HockeyActivity implements View.OnClickListener {
 
 
 
