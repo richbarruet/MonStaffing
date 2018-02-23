@@ -85,7 +85,7 @@ public class ApplyOfferActivity extends AppCompatActivity {
                     emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"allan.sirdey@cgi.com"});
                     emailIntent.setType("text/plain");
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email subject");
-                    emailIntent.putExtra(Intent.EXTRA_TEXT, mission.getDescriptif());
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, mission.getDescriptif() + "\n\n" + editTextMessage.getText().toString());
                     startActivity(emailIntent);
                 }
             });
