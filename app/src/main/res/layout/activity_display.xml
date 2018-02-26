@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/colorCGIAccent"
-            android:dividerHeight="2px"/>
+            android:dividerHeight="1dp"/>
 
     <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
