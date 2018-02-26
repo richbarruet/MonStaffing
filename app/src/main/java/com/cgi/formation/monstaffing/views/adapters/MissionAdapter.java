@@ -54,7 +54,10 @@ public class MissionAdapter extends BaseAdapter {
             view = new MissionView(context,(Mission)this.getItem(i));
         }
         final MissionView missionView = (MissionView)view;
+
+        missionView.setMission((Mission) this.getItem(i));
         missionView.initMissionItemView();
+
         missionView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 missionListener.onClickMissionItem(missionView.getMission());

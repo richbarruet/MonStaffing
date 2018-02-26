@@ -97,8 +97,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
                             @Override
                             protected void onPostExecute(List<Mission> result) {
                                 progress.dismiss();
-                                if(result.size() < 5)
-                                    endOfTheList = true;
+                                endOfTheList = (result.size() < 5);
                                 pagination++;
                                 MissionAdapter adapter = (MissionAdapter) listView.getAdapter();
                                 adapter.putMissions(result);
@@ -170,6 +169,9 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             // Fetch the score from the Intent
             String villeFilter = data.getStringExtra(FiltreActivity.BUNDLE_VILLE);
             String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
+
+            pagination = 0;
+
             AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
                 @Override
                 protected void onPreExecute() {
@@ -184,6 +186,8 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
                 @Override
                 protected void onPostExecute(List<Mission> result){
                     progress.dismiss();
+                    endOfTheList = (result.size() < 5);
+                    pagination ++;
                     initDisplay(result);
                 }
             };
@@ -194,7 +198,6 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             }
             keyWord = motclef;
             asyncTask.execute(city,keyWord, 0);
-            pagination = 0;
         }
     }
 
