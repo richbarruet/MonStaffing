@@ -25,4 +25,8 @@
     <string name="password">Password</string>
     <string name="cgi">CGI</string>
     <string name="loginFailed">Echec de connexion</string>
+    <string name="quitter_application">Quitter l\'application</string>
+    <string name="quitter_application_long">Voulez-vous vraiment quitter l\'application ?</string>
+    <string name="oui">Oui</string>
+    <string name="non">Non</string>
 </resources>

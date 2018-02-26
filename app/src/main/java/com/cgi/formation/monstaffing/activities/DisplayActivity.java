@@ -1,5 +1,7 @@
 package com.cgi.formation.monstaffing.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -204,6 +206,24 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         progress.setTitle("Chargement");
         progress.setMessage("En attente des résultats...");
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.quitter_application)
+                .setMessage(R.string.quitter_application_long)
+                .setPositiveButton(R.string.oui, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton(R.string.non, null)
+                .show();
     }
 
 }
