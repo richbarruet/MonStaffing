@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             buildConfigField("String", "BASE_URL", "\"http://monstaffing.getsandbox.com/v1\"")
-            buildConfigField("String", "TARGET_MAIL", "\"yoann.cariou.com\"")
+            buildConfigField("String", "TARGET_MAIL", "\"yoann.cariou@cgi.com\"")
         }
         debug {
             minifyEnabled false
@@ -37,7 +37,7 @@ android {
             signingConfig signingConfigs.debug
 
             buildConfigField("String", "BASE_URL", "\"http://monstaffing.getsandbox.com/v1\"")
-            buildConfigField("String", "TARGET_MAIL", "\"yoann.cariou.com\"")
+            buildConfigField("String", "TARGET_MAIL", "\"yoann.cariou@cgi.com\"")
         }
     }
 }
