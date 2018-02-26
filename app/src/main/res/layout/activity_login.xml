@@ -7,32 +7,6 @@
     android:orientation="vertical"
     tools:context="com.cgi.formation.monstaffing.activities.LoginActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorCGI"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.AppCompatTextView
-            style="@style/Base.TextAppearance.AppCompat.Display1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="60dp"
-            android:text="Offres de missions"
-            android:textColor="@android:color/white" />
-
-        <android.support.v7.widget.AppCompatTextView
-            style="@style/Base.TextAppearance.AppCompat.Headline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="CGI"
-            android:textColor="@android:color/white" />
-
-    </LinearLayout>
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -42,40 +16,71 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/edittext_login"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_10dp"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"/>
+                android:layout_height="200dp"
+                android:background="@color/colorCGI"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/edittext_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_10dp"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
+                <android.support.v7.widget.AppCompatTextView
+                    style="@style/Base.TextAppearance.AppCompat.Display1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="60dp"
+                    android:text="Offres de missions"
+                    android:textColor="@android:color/white" />
 
-            <Button
-                android:id="@+id/button_login"
-                style="@style/BackgroundButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_10dp"
-                android:text="@string/login" />
+                <android.support.v7.widget.AppCompatTextView
+                    style="@style/Base.TextAppearance.AppCompat.Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="CGI"
+                    android:textColor="@android:color/white" />
 
-            <TextView
-                android:id="@+id/textView"
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginTop_30dp"
-                android:text="@string/cgi"
-                android:textAlignment="center"
-                android:textColor="@color/colorCGI"
-                android:textSize="@dimen/textSize_big"
-                android:textStyle="bold" />
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edittext_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"/>
+
+                <EditText
+                    android:id="@+id/edittext_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+
+                <Button
+                    android:id="@+id/button_login"
+                    style="@style/BackgroundButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:text="@string/login" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop_30dp"
+                    android:text="@string/cgi"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorCGI"
+                    android:textSize="@dimen/textSize_big"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

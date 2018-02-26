@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             buildConfigField("String", "BASE_URL", "\"http://monstaffing.getsandbox.com/v1\"")
-            buildConfigField("String", "TARGET_MAIL", "\"richard.barruet@cgi.com\"")
+            buildConfigField("String", "TARGET_MAIL", "\"yoann.cariou.com\"")
         }
         debug {
             minifyEnabled false
