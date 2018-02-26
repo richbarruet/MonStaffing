@@ -50,7 +50,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             public void onRefresh() {
                 Log.d("PULL_TO_REFRESH", "Pull to refresh");
             }
-        });
+        });*/
 
 
         //Récupérer la liste View
