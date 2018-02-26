@@ -43,7 +43,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         setContentView(R.layout.activity_display);
 
         initProgress(progress);
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        /*swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -51,11 +51,6 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
                 Log.d("PULL_TO_REFRESH", "Pull to refresh");
             }
         });
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
 
 
         //Récupérer la liste View

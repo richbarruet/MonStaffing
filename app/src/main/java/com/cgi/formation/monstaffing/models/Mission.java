@@ -118,6 +118,7 @@ public class Mission implements Serializable{
 
     //Enum String
     public static enum Lieu {
+        Defaut("-Selectionnez votre ville-"),
         Angers("Angers"),
         AngersPossible3jParsemaineANantes("Angers (possible 3j/semaine à Nantes)"),
         Brest("Brest"),
