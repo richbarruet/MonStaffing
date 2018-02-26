@@ -47,12 +47,18 @@
         android:layout_gravity="center"
         android:layout_weight="5" />
 
-    <Button
-        android:id="@+id/boutonValidation"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/boutonValidation"
-        android:layout_weight="5"/>
+        android:layout_weight="5">
+
+        <Button
+            android:id="@+id/boutonValidation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/boutonValidation"/>
+
+    </FrameLayout>
 
 </LinearLayout>
 

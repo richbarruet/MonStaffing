@@ -189,6 +189,8 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             };
             if(!villeFilter.equals("DEFAULT")) {
                 city = villeFilter;
+            }else{
+                city = "";
             }
             keyWord = motclef;
             asyncTask.execute(city,keyWord, 0);
