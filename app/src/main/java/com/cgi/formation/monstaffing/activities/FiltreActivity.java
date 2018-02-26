@@ -39,7 +39,12 @@ public class FiltreActivity extends AppCompatActivity {
                 String motChoisi = motCleRentre.getText().toString();
                 intent.putExtra(BUNDLE_MOT_CLE, motChoisi);
                 Mission.Lieu lieuChoisie = (Mission.Lieu) villeChoisie.getSelectedItem();
-                intent.putExtra(BUNDLE_VILLE, lieuChoisie.getValue());
+                //Valeur par défault
+                if(lieuChoisie.getValue().equals(Mission.Lieu.DEFAULT.getValue())){
+                    intent.putExtra(BUNDLE_VILLE,"DEFAULT");
+                } else {
+                    intent.putExtra(BUNDLE_VILLE, lieuChoisie.getValue());
+                }
                 setResult(RESULT_OK, intent);
                 finish();
 
