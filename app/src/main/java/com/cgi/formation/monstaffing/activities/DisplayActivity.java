@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.app.ProgressDialog;
+import android.widget.ProgressBar;
 
 import com.cgi.formation.monstaffing.R;
 import com.cgi.formation.monstaffing.managers.WebServiceManager;
@@ -33,6 +34,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private String keyWord="";
     private boolean endOfTheList = false;
     private SwipeRefreshLayout swipeContainer;
+    private ProgressDialog progress;
 
 
     @Override
@@ -40,6 +42,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        initProgress(progress);
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -85,12 +88,18 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
                         AsyncTask asyncTask = new AsyncTask<Object, Void, List<Mission>>() {
 
                             @Override
+                            protected void onPreExecute() {
+                                progress.show();
+                            }
+
+                            @Override
                             protected List<Mission> doInBackground(Object[] objects) {
                                 return webServiceManagerInstance.getMissionsFlitred(city,keyWord,pagination);
                             }
 
                             @Override
                             protected void onPostExecute(List<Mission> result) {
+                                progress.dismiss();
                                 if(result.size() < 5)
                                     endOfTheList = true;
                                 pagination++;
@@ -107,6 +116,11 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
         //Asynchroune Task pour l'appelle au WS
          AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
 
+             @Override
+             protected void onPreExecute() {
+                 progress.show();
+             }
+
             @Override
             protected List<Mission> doInBackground(Object[] objects) {
                 return webServiceManagerInstance.getMissionsFlitred(city,keyWord,pagination);
@@ -114,6 +128,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
             @Override
             protected void onPostExecute(List<Mission> result){
+                progress.dismiss();
                 initDisplay(result);
                 pagination++;
             }
@@ -160,7 +175,8 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
             String motclef = data.getStringExtra(FiltreActivity.BUNDLE_MOT_CLE);
             AsyncTask asyncTask = new AsyncTask<Object,Void,List<Mission>>(){
                 @Override
-                protected void onPreExecute(){
+                protected void onPreExecute() {
+                    progress.show();
                 }
 
                 @Override
@@ -170,6 +186,7 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
 
                 @Override
                 protected void onPostExecute(List<Mission> result){
+                    progress.dismiss();
                     initDisplay(result);
                 }
             };
@@ -183,6 +200,13 @@ public class DisplayActivity extends AppCompatActivity implements MissionAdapter
     private void initDisplay(List<Mission> missions) {
         MissionAdapter adapter = new MissionAdapter(this, missions, this);
         listView.setAdapter(adapter);
+    }
+
+    private void initProgress(ProgressDialog progres){
+        progress = new ProgressDialog(this);
+        progress.setTitle("Chargement");
+        progress.setMessage("En attente des résultats...");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
     }
 
 }
