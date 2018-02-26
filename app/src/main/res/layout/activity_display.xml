@@ -14,6 +14,43 @@
         android:layout_gravity="center"
         android:text="@string/boutonFiltre" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:background="@color/colorCGIAccent"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/client"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Vertical"
+            android:textAlignment="textStart"
+            android:textColor="#FFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Poste"
+            android:textAlignment="center"
+            android:textColor="#FFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lieu"
+            android:textAlignment="textEnd"
+            android:textColor="#FFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <!--<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
@@ -23,7 +60,9 @@
         <ListView
             android:id="@+id/missionListId"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:divider="@color/colorCGIAccent"
+            android:dividerHeight="2px"/>
 
     <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
