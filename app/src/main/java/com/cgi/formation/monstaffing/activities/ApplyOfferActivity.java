@@ -91,7 +91,7 @@ public class ApplyOfferActivity extends AppCompatActivity {
                     Intent emailIntent = new Intent(Intent.ACTION_SEND);
                     emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{BuildConfig.TARGET_MAIL});
                     emailIntent.setType("text/plain");
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Postuler offre CGI");
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.apply_offer));
                     emailIntent.putExtra(Intent.EXTRA_TEXT, mission.getDescriptif() + "\n\n" + editTextMessage.getText().toString());
                     startActivity(emailIntent);
                 }

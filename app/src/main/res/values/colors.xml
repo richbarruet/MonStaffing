@@ -7,4 +7,5 @@
     <color name="colorCGIDark">#93000e</color>
     <color name="colorCGILight">#ff505c</color>
     <color name="colorCGIAccent">#4f9cc6</color>
+    <color name="white">#FFFF</color>
 </resources>

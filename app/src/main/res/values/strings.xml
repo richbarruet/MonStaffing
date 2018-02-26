@@ -29,4 +29,5 @@
     <string name="quitter_application_long">Voulez-vous vraiment quitter l\'application ?</string>
     <string name="oui">Oui</string>
     <string name="non">Non</string>
+    <string name="apply_offer">Postuler offre CGI</string>
 </resources>
