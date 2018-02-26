@@ -32,6 +32,13 @@ android {
             buildConfigField("String", "BASE_URL", "\"http://monstaffing.getsandbox.com/v1\"")
             buildConfigField("String", "TARGET_MAIL", "\"richard.barruet@cgi.com\"")
         }
+        vmoy {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+
+            buildConfigField("String", "BASE_URL", "\"http://monstaffing.getsandbox.com/v1\"")
+            buildConfigField("String", "TARGET_MAIL", "\"yoann.cariou.com\"")
+        }
     }
 }
 

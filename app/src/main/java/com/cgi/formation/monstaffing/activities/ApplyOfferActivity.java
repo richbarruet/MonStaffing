@@ -39,6 +39,10 @@ public class ApplyOfferActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_offer);
 
+        // Affichage bouton Retour
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         textViewVertical = findViewById(R.id.textview_vertical);
         textViewPoste = findViewById(R.id.textview_poste);
         textViewCompetences = findViewById(R.id.textview_competences);
@@ -94,5 +98,12 @@ public class ApplyOfferActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    // Action Bouton Retour
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return true;
     }
 }

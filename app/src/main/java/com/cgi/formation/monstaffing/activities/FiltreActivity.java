@@ -23,6 +23,10 @@ public class FiltreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtre);
 
+        // Affichage bouton Retour
+        if(getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final EditText motCleRentre = findViewById(R.id.motCleUser);
         final Spinner villeChoisie = findViewById(R.id.villeChoisie);
         Button boutonValidation = findViewById(R.id.boutonValidation);
@@ -54,5 +58,11 @@ public class FiltreActivity extends AppCompatActivity {
 
     }
 
+    // Action Bouton Retour
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return true;
+    }
 
 }
